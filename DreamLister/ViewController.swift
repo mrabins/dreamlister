@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        generateTestData()
+        //        generateTestData()
         attemptFetch()
     }
     
@@ -43,9 +43,18 @@ class ViewController: UIViewController {
         item3.price = 110000
         item3.details = "This is one of the most beautiful cars on the road. One day I will own one"
         
-        
         ad.saveContext()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ItemDetailsVC" {
+            if let destination = segue.destination as? ItemDetailsViewController {
+                if let item = sender as? Item {
+                    destination.itemToEdit = item
+                }
+            }
+        }
     }
     
 }
@@ -60,8 +69,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func configureCell(cell: ItemCell, indexPath: NSIndexPath) {
+        
         let item = controller.object(at: indexPath as IndexPath)
         cell.configureCell(item: item)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,10 +81,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
             
             let sectionInfo = sections[section]
             return sectionInfo.numberOfObjects
-            
         }
         return 0
-        
     }
     
     
@@ -87,6 +96,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let objs = controller.fetchedObjects , objs.count > 0 {
+            
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: "ItemDetailsVC", sender: item)
+        }
+    }
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {
@@ -97,17 +115,23 @@ extension ViewController: NSFetchedResultsControllerDelegate {
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
         fetchRequest.sortDescriptors = [dateSort]
         
+        
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        controller.delegate = self
         
         self.controller = controller
         
-        do  {
+        do {
+            
             try controller.performFetch()
+            
         } catch {
+            
             let error = error as NSError
             print("\(error)")
+            
         }
-        
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

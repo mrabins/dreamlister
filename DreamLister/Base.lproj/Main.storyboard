@@ -39,7 +39,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="150" id="9YP-FH-nKA" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="150" id="9YP-FH-nKA" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9YP-FH-nKA" id="5ye-Py-Fie">
@@ -90,7 +90,6 @@
                                                         <constraint firstItem="saO-PZ-V7P" firstAttribute="leading" secondItem="27z-S5-6sD" secondAttribute="leading" constant="8" id="H55-Zm-O40"/>
                                                         <constraint firstItem="Uxt-WW-otG" firstAttribute="top" secondItem="rww-eK-1GS" secondAttribute="bottom" constant="8" id="KMT-PX-4Jk"/>
                                                         <constraint firstItem="Uxt-WW-otG" firstAttribute="leading" secondItem="saO-PZ-V7P" secondAttribute="trailing" constant="8" id="ORq-r5-Fk3"/>
-                                                        <constraint firstItem="Uxt-WW-otG" firstAttribute="leading" secondItem="saO-PZ-V7P" secondAttribute="trailing" constant="8" id="UDz-SI-gYq"/>
                                                         <constraint firstItem="rsI-zl-3Xa" firstAttribute="top" secondItem="27z-S5-6sD" secondAttribute="top" constant="8" id="XBU-Ut-o8r"/>
                                                         <constraint firstItem="rsI-zl-3Xa" firstAttribute="leading" secondItem="saO-PZ-V7P" secondAttribute="trailing" constant="8" id="YEj-I4-L2a"/>
                                                         <constraint firstAttribute="trailing" secondItem="Uxt-WW-otG" secondAttribute="trailing" constant="8" id="YcB-QS-SCu"/>
@@ -144,12 +143,12 @@
                     <connections>
                         <outlet property="segment" destination="WpU-Hy-bKf" id="HGc-gc-lCF"/>
                         <outlet property="tableView" destination="Nx8-FQ-Tiw" id="rJ1-1b-4jD"/>
-                        <segue destination="Gqq-zS-5Gg" kind="showDetail" id="GQn-Rx-Lo7"/>
+                        <segue destination="Gqq-zS-5Gg" kind="show" identifier="ItemDetailsVC" id="Unu-PG-ZLs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821.60000000000002" y="-545.57721139430294"/>
+            <point key="canvasLocation" x="793" y="-545"/>
         </scene>
         <!--Add/Edit-->
         <scene sceneID="lsq-YK-ue9">
@@ -185,7 +184,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l0P-Xy-TZP" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="128" y="132" width="266" height="40"/>
@@ -196,7 +195,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTr-Wb-S3i" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="20" y="182" width="374" height="60"/>
@@ -206,7 +205,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Store:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXs-0X-Rf6">
                                 <rect key="frame" x="20" y="282" width="374" height="21"/>
@@ -224,6 +223,9 @@
                                 <state key="normal" title="Save Item">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveItemButtonPressedWithSender:" destination="Gqq-zS-5Gg" eventType="touchUpInside" id="1T8-ye-fRP"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLL-jC-vX7">
                                 <rect key="frame" x="20" y="311" width="374" height="340"/>
@@ -270,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73o-dx-lfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483.125" y="-544.0140845070423"/>
+            <point key="canvasLocation" x="1482.608695652174" y="-544.56521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H9m-to-4h3">
@@ -299,6 +301,6 @@
         <image name="imagePick" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2ub-aY-41O"/>
+        <segue reference="Unu-PG-ZLs"/>
     </inferredMetricsTieBreakers>
 </document>

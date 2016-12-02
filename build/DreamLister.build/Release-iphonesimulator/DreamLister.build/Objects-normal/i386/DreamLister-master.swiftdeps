@@ -1,0 +1,19 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "1dc7fb3cc494c421f6681324bd85e078"
+build_time: [533689713, 122788000]
+inputs:
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/DreamLister/CustomTextField.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/DreamLister/ViewController.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/DreamLister/AppDelegate.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/DreamLister/ItemDetailsViewController.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/DreamLister/MaterialView.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/DreamLister/ItemCell.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/Image+CoreDataClass.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/Image+CoreDataProperties.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/Item+CoreDataClass.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/Item+CoreDataProperties.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/ItemType+CoreDataClass.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/ItemType+CoreDataProperties.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/Store+CoreDataClass.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/Store+CoreDataProperties.swift": [9223372036854775807, 0]
+  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/DreamLister/build/DreamLister.build/Release-iphonesimulator/DreamLister.build/DerivedSources/CoreDataGenerated/DreamLister/DreamLister+CoreDataModel.swift": [9223372036854775807, 0]
