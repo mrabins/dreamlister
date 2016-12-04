@@ -23,29 +23,36 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        generateTestData()
+//        generateTestData()
         attemptFetch()
     }
     
-    func generateTestData() {
-        let item = Item(context: context)
-        item.title = "New MacBook Pro"
-        item.price = 1800
-        item.details = "I cannot wait until until the September event, I hope new MBP's are accounced."
-        
-        let item2 = Item(context: context)
-        item2.title = "Bose HeadPhones"
-        item2.price = 300
-        item2.details = "The New Noise cancelling feature is going to completely drain out all other noises"
-        
-        let item3 = Item(context: context)
-        item3.title = "Telsa Model S"
-        item3.price = 110000
-        item3.details = "This is one of the most beautiful cars on the road. One day I will own one"
-        
-        ad.saveContext()
-        
+    
+    // Uncomment if you wish to create test data - Uncomment function called in viewDidLoad
+    
+//    func generateTestData() {
+//        let item = Item(context: context)
+//        item.title = "New MacBook Pro"
+//        item.price = 1800
+//        item.details = "I cannot wait until until the September event, I hope new MBP's are accounced."
+//        
+//        let item2 = Item(context: context)
+//        item2.title = "Bose HeadPhones"
+//        item2.price = 300
+//        item2.details = "The New Noise cancelling feature is going to completely drain out all other noises"
+//        
+//        let item3 = Item(context: context)
+//        item3.title = "Telsa Model S"
+//        item3.price = 110000
+//        item3.details = "This is one of the most beautiful cars on the road. One day I will own one"
+//        ad.saveContext()
+//    }
+    
+    @IBAction func segmentChange(_ sender: Any) {
+        attemptFetch()
+        tableView.reloadData()
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemDetailsVC" {
@@ -113,24 +120,26 @@ extension ViewController: NSFetchedResultsControllerDelegate {
         
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
         
+        if segment.selectedSegmentIndex == 0 {
+            fetchRequest.sortDescriptors = [dateSort]
+        } else if segment.selectedSegmentIndex == 1 {
+            fetchRequest.sortDescriptors = [priceSort]
+        } else if segment.selectedSegmentIndex == 2 {
+            fetchRequest.sortDescriptors = [titleSort]
+        }
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        
         controller.delegate = self
-        
         self.controller = controller
         
         do {
-            
             try controller.performFetch()
-            
         } catch {
-            
             let error = error as NSError
             print("\(error)")
-            
         }
     }
     

@@ -66,7 +66,7 @@ class ItemDetailsViewController: UIViewController {
         }
     }
     
-    @IBAction func saveItemButtonPressed(sender: UIButton) {
+    @IBAction func saveItemButtonPressed(_ sender: UIButton) {
         var item: Item!
         let picture = Image(context: context)
         picture.image = thumbImage.image
@@ -114,7 +114,7 @@ class ItemDetailsViewController: UIViewController {
         
     }
     
-    @IBAction func deletePressed(sender: UIBarButtonItem) {
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
         if itemToEdit != nil {
             context.delete(itemToEdit!)
             ad.saveContext()
@@ -147,7 +147,7 @@ extension ItemDetailsViewController: UIPickerViewDelegate,UIPickerViewDataSource
 
 extension ItemDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBAction func addImage(sender: UIButton) {
+    @IBAction func addImage(_ sender: UIButton) {
         present(imagePicker, animated: true, completion: nil)
     }
     
