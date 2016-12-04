@@ -23,29 +23,29 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        //        generateTestData()
+        generateTestData()
         attemptFetch()
     }
     
-//    func generateTestData() {
-//        let item = Item(context: context)
-//        item.title = "New MacBook Pro"
-//        item.price = 1800
-//        item.details = "I cannot wait until until the September event, I hope new MBP's are accounced."
-//        
-//        let item2 = Item(context: context)
-//        item2.title = "Bose HeadPhones"
-//        item2.price = 300
-//        item2.details = "The New Noise cancelling feature is going to completely drain out all other noises"
-//        
-//        let item3 = Item(context: context)
-//        item3.title = "Telsa Model S"
-//        item3.price = 110000
-//        item3.details = "This is one of the most beautiful cars on the road. One day I will own one"
-//        
-//        ad.saveContext()
-//        
-//    }
+    func generateTestData() {
+        let item = Item(context: context)
+        item.title = "New MacBook Pro"
+        item.price = 1800
+        item.details = "I cannot wait until until the September event, I hope new MBP's are accounced."
+        
+        let item2 = Item(context: context)
+        item2.title = "Bose HeadPhones"
+        item2.price = 300
+        item2.details = "The New Noise cancelling feature is going to completely drain out all other noises"
+        
+        let item3 = Item(context: context)
+        item3.title = "Telsa Model S"
+        item3.price = 110000
+        item3.details = "This is one of the most beautiful cars on the road. One day I will own one"
+        
+        ad.saveContext()
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemDetailsVC" {
