@@ -15,7 +15,9 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var priceField: CustomTextField!
     @IBOutlet weak var detailsField: CustomTextField!
+    @IBOutlet weak var typeField: CustomTextField!
     @IBOutlet weak var thumbImage: UIImageView!
+    
     
     var imagePicker: UIImagePickerController!
     var stores = [Store]()
@@ -71,6 +73,7 @@ class ItemDetailsViewController: UIViewController {
         let picture = Image(context: context)
         picture.image = thumbImage.image
         
+        
         if itemToEdit == nil {
             item = Item(context: context)
         } else {
@@ -86,6 +89,13 @@ class ItemDetailsViewController: UIViewController {
         if let details = detailsField.text {
             item.details = details
         }
+        if let type = typeField.text {
+            
+
+        }
+        
+        
+        
         item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
         ad.saveContext()
         _ = navigationController?.popViewController(animated: true)
@@ -97,6 +107,7 @@ class ItemDetailsViewController: UIViewController {
             priceField.text = "\(item.price)"
             detailsField.text = item.details
             thumbImage.image = item.toImage?.image as? UIImage
+            typeField.text = "\(item.toItemType)"
             
             if let store = item.toStore {
                 
