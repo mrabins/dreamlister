@@ -72,7 +72,7 @@ class ItemDetailsViewController: UIViewController {
         var item: Item!
         let picture = Image(context: context)
         picture.image = thumbImage.image
-        
+        let theType: String
         
         if itemToEdit == nil {
             item = Item(context: context)
@@ -80,6 +80,9 @@ class ItemDetailsViewController: UIViewController {
             item = itemToEdit
         }
         item.toImage = picture
+        
+        "\(item.toItemType)" = theType as ItemType
+        
         if let title = titleField.text {
             item.title = title
         }
@@ -90,6 +93,7 @@ class ItemDetailsViewController: UIViewController {
             item.details = details
         }
         if let type = typeField.text {
+            // Address this case
             
 
         }
