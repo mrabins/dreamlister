@@ -35,16 +35,20 @@ class ViewController: UIViewController {
 //        item.title = "New MacBook Pro"
 //        item.price = 1800
 //        item.details = "I cannot wait until until the September event, I hope new MBP's are accounced."
+//        item.type = "his is an electronic - New MacBook Pro "
 //        
 //        let item2 = Item(context: context)
 //        item2.title = "Bose HeadPhones"
 //        item2.price = 300
 //        item2.details = "The New Noise cancelling feature is going to completely drain out all other noises"
+//        item2.type = "This is an electronic - Bose HeadPhones"
 //        
 //        let item3 = Item(context: context)
 //        item3.title = "Telsa Model S"
 //        item3.price = 110000
 //        item3.details = "This is one of the most beautiful cars on the road. One day I will own one"
+//        item3.type = "This is a car - Telsa Model S"
+//    
 //        ad.saveContext()
 //    }
     

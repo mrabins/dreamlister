@@ -18,7 +18,6 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var typeField: CustomTextField!
     @IBOutlet weak var thumbImage: UIImageView!
     
-    
     var imagePicker: UIImagePickerController!
     var stores = [Store]()
     var itemToEdit: Item?
@@ -29,9 +28,12 @@ class ItemDetailsViewController: UIViewController {
         if let topItem = self.navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         }
+        
         storePicker.dataSource = self
         storePicker.delegate = self
         
+        // Uncomment if you wish to use store data
+//        
 //        let store = Store(context: context)
 //        store.name = "Best Buy"
 //        let store2 = Store(context: context)
@@ -44,8 +46,8 @@ class ItemDetailsViewController: UIViewController {
 //        store5.name = "Amazon"
 //        let store6 = Store(context: context)
 //        store6.name = "K Mart"
-        
-        ad.saveContext()
+//        
+//        ad.saveContext()
 
         getStores()
             
@@ -72,7 +74,6 @@ class ItemDetailsViewController: UIViewController {
         var item: Item!
         let picture = Image(context: context)
         picture.image = thumbImage.image
-        let theType: String
         
         if itemToEdit == nil {
             item = Item(context: context)
@@ -81,7 +82,6 @@ class ItemDetailsViewController: UIViewController {
         }
         item.toImage = picture
         
-        "\(item.toItemType)" = theType as ItemType
         
         if let title = titleField.text {
             item.title = title
@@ -93,14 +93,13 @@ class ItemDetailsViewController: UIViewController {
             item.details = details
         }
         if let type = typeField.text {
-            // Address this case
-            
-
+            item.type = type        
         }
         
-        
+        // TODO: Handle this gracefully when it gets called out of range.
         
         item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        
         ad.saveContext()
         _ = navigationController?.popViewController(animated: true)
     }
@@ -111,7 +110,7 @@ class ItemDetailsViewController: UIViewController {
             priceField.text = "\(item.price)"
             detailsField.text = item.details
             thumbImage.image = item.toImage?.image as? UIImage
-            typeField.text = "\(item.toItemType)"
+            typeField.text = item.toItemType?.type
             
             if let store = item.toStore {
                 
@@ -150,7 +149,8 @@ extension ItemDetailsViewController: UIPickerViewDelegate,UIPickerViewDataSource
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+            return 1
+
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
