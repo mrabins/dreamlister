@@ -1,3 +1,5 @@
+Dreamlister is a iOS application where you can add items you wish for, or dream of.
+
 
 New Items
 
@@ -13,5 +15,7 @@ Edit items
 
 ![Alt text](https://github.com/mrabins/dreamlister/blob/assets/Assets/Dreamlister2.png)
 
+
 Sort by type
+
 ![Alt text](https://github.com/mrabins/dreamlister/blob/assets/Assets/Dreamlistertype.png)
